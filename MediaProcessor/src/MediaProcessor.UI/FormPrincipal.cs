@@ -268,41 +268,5 @@ namespace MediaProcessor.UI
             outputWindow.AppendLine(@"Finalizado");
         }
 
-        private void btnArquivo_Click(object sender, EventArgs e)
-        {
-
-            var fileDialog = new OpenFileDialog
-            {
-                Title = "Selecione o arquivo",
-                Multiselect = false,
-                CheckFileExists = true
-            };
-
-            var fileDialogresult = fileDialog.ShowDialog();
-
-            if (DialogResult.OK != fileDialogresult) return;
-
-            outputWindow.Clear();
-
-            InformarInicializacao();
-
-            outputWindow.AppendLine($"Arquivo selecionado: '{fileDialog.FileName}'");
-
-            var processador = _processadores.FirstOrDefault(processador => processador.ServiceLocation(fileDialog.FileName.Split('.').Last()));
-
-            if (processador == null)
-            {
-                MessageBox.Show("Tipo de arquivo não suportado.");
-                return;
-            }
-
-            var formArquivo = new FormArquivo(fileDialog.FileName, processador);
-
-            formArquivo.ShowDialog();
-
-            InformarFinalizacao();
-
-        }
-
     }
 }

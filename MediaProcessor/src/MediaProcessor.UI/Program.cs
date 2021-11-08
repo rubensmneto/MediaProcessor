@@ -17,7 +17,7 @@ namespace MediaProcessor.UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ConfigureServices();
-            Application.Run(new frmPrincipal());
+            Application.Run(new FormHome());
         }
 
 

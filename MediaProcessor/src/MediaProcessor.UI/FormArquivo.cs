@@ -171,12 +171,15 @@ namespace MediaProcessor.UI
         private void btnSelecionarArquivo_Click(object sender, EventArgs e)
         {
 
-            if (!SelecionarArquivo())
+            if (!SelecionarArquivo() || 
+                !SelecionarProcessador())
             {
                 btnCorrigir.Enabled = false;
             }
 
             txtNomeArquivo.Text = _fileInfo.FullName;
+
+            dtpDataArquivo.Value = dtpHoraArquivo.Value = _mediaFileProcessor.ObterData(_fileInfo);
 
             btnCorrigir.Enabled = true;
 

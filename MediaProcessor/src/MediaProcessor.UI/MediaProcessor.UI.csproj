@@ -4,6 +4,20 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Resources\save.ico</ApplicationIcon>
+    <StartupObject>MediaProcessor.UI.Program</StartupObject>
+    <Version>0.0.0.1</Version>
+    <PackageId>MediaProcessor</PackageId>
+    <Authors>Rubens Martins Neto</Authors>
+    <Product>MediaProcessor</Product>
+    <Description>Processador de arquivos de imagens e vídeos</Description>
+    <Copyright>2021</Copyright>
+    <PackageIcon>save.png</PackageIcon>
+    <PackageIconUrl />
+    <NeutralLanguage>pt-BR</NeutralLanguage>
+    <RepositoryUrl>https://github.com/rubensmneto/MediaProcessor</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageReleaseNotes>Está bem incipiente...</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +26,28 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\save.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

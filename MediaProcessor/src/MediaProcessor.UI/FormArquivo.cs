@@ -1,6 +1,7 @@
 ﻿using MediaProcessor.UI.Core;
 using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace MediaProcessor.UI
@@ -8,44 +9,80 @@ namespace MediaProcessor.UI
     public partial class FormArquivo : Form
     {
 
-        private readonly string _filePath;
-        private readonly IMediaFileProcessor _mediaFileProcessor;
+        private FileInfo _fileInfo;
 
-        public FormArquivo(string filePath, IMediaFileProcessor processor)
+        private IMediaFileProcessor _mediaFileProcessor;
+
+        public FormArquivo()
         {
             InitializeComponent();
-            _filePath = filePath;
-            _mediaFileProcessor = processor;
         }
 
-        private void FormArquivo_Load(object sender, EventArgs e)
+        private bool SelecionarArquivo()
         {
 
-            lblNomeArquivo.Text = _filePath;
+            var fileDialog = new OpenFileDialog
+            {
+                Title = "Selecione o arquivo",
+                Multiselect = false,
+                CheckFileExists = true
+            };
 
-            var fileInfo = new FileInfo(_filePath);
+            if (DialogResult.OK != fileDialog.ShowDialog() ||
+                string.IsNullOrEmpty(fileDialog.FileName))
+            {
+                MessageBox.Show("Não foi possível obter o arquivo", "Ops", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
 
-            var dataArquivo = _mediaFileProcessor.ObterData(fileInfo);
+            _fileInfo = new FileInfo(fileDialog.FileName);
 
-            dtpHoraArquivo.Value = dtpDataArquivo.Value = dataArquivo;
+            return true;
+
+        }
+
+        private bool SelecionarProcessador()
+        {
+
+            var processadores = new IMediaFileProcessor[]
+            {
+                new Services.ImageProcessor(),
+                new Services.VideoProcessor()
+            };
+
+            _mediaFileProcessor = processadores.FirstOrDefault(processador => processador.ServiceLocation(_fileInfo.Extension));
+
+            if (_mediaFileProcessor == null)
+            {
+                MessageBox.Show($"Não foi possível obter o processador para arquivos com a extensão {_fileInfo.Extension}", "Ops", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
 
         }
 
         private void btnCorrigir_Click(object sender, EventArgs e)
         {
 
+            if (!SelecionarProcessador())
+            {
+                MessageBox.Show($"Não foi possível encontrar um processador para o arquivo do tipo {_fileInfo.Extension}",
+                                "Ops",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
             Cursor = Cursors.WaitCursor;
 
-            // buscando detalhes do arquivo original
-            var fileInfo = new FileInfo(_filePath);
-
             // Criar nome do arquivo de backup
-            var backupFileName = $"{_filePath}.bkp";
+            var backupFileName = $"{_fileInfo.FullName}.bkp";
 
             try
             {
                 // criando o arquivo de backup
-                File.Copy(_filePath, backupFileName);
+                File.Copy(_fileInfo.FullName, backupFileName);
             }
             catch (Exception ex)
             {
@@ -63,12 +100,12 @@ namespace MediaProcessor.UI
             }
 
             // definir nome do arquivo de destino
-            var target = $"{fileInfo.Directory}\\{dtpDataArquivo.Value:yyyyMMdd_HHmmss}{fileInfo.Extension}";
+            var target = $"{_fileInfo.Directory}\\{dtpDataArquivo.Value:yyyyMMdd_HHmmss}{_fileInfo.Extension}";
 
             try
             {
                 // renomear = move do velho pro novo
-                File.Move(_filePath, target);
+                File.Move(_fileInfo.FullName, target);
             }
             catch (Exception ex)
             {
@@ -89,7 +126,7 @@ namespace MediaProcessor.UI
             catch (Exception ex)
             {
                 File.Delete(target);
-                File.Move(backupFileName, _filePath);
+                File.Move(backupFileName, _fileInfo.FullName);
                 MessageBox.Show($"Erro ao ajustar os metadados do arquivo: {ex.Message}",
                                 "Ops!",
                                 MessageBoxButtons.OK,
@@ -128,6 +165,20 @@ namespace MediaProcessor.UI
             var date = dtpDataArquivo.Value.ToString("yyyy-MM-dd");
 
             dtpDataArquivo.Value = Convert.ToDateTime($"{date} {hour}");
+
+        }
+
+        private void btnSelecionarArquivo_Click(object sender, EventArgs e)
+        {
+
+            if (!SelecionarArquivo())
+            {
+                btnCorrigir.Enabled = false;
+            }
+
+            txtNomeArquivo.Text = _fileInfo.FullName;
+
+            btnCorrigir.Enabled = true;
 
         }
     }

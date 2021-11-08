@@ -40,40 +40,37 @@ namespace MediaProcessor.UI
             this.btnProcessar = new System.Windows.Forms.Button();
             this.outputWindow = new System.Windows.Forms.RichTextBox();
             this.txtOrigem = new System.Windows.Forms.TextBox();
-            this.btnArquivo = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 49);
+            this.label1.Location = new System.Drawing.Point(11, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 20);
+            this.label1.Size = new System.Drawing.Size(113, 15);
             this.label1.TabIndex = 4;
             this.label1.Text = "Caminho de origem";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 113);
+            this.label2.Location = new System.Drawing.Point(12, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 20);
+            this.label2.Size = new System.Drawing.Size(114, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "Caminho de destino";
             // 
             // txtDestino
             // 
-            this.txtDestino.Location = new System.Drawing.Point(14, 139);
-            this.txtDestino.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDestino.Location = new System.Drawing.Point(12, 104);
             this.txtDestino.Name = "txtDestino";
             this.txtDestino.PlaceholderText = "Caminho de destino";
-            this.txtDestino.Size = new System.Drawing.Size(613, 27);
+            this.txtDestino.Size = new System.Drawing.Size(537, 23);
             this.txtDestino.TabIndex = 7;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnArquivo);
             this.groupBox2.Controls.Add(this.cbxIgnorarSeJaExistir);
             this.groupBox2.Controls.Add(this.cbxLimparDestino);
             this.groupBox2.Controls.Add(this.btnPesquisarCaminhoDestino);
@@ -86,10 +83,8 @@ namespace MediaProcessor.UI
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(827, 948);
+            this.groupBox2.Size = new System.Drawing.Size(724, 711);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Configurações";
@@ -99,10 +94,9 @@ namespace MediaProcessor.UI
             this.cbxIgnorarSeJaExistir.AutoSize = true;
             this.cbxIgnorarSeJaExistir.Checked = true;
             this.cbxIgnorarSeJaExistir.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxIgnorarSeJaExistir.Location = new System.Drawing.Point(142, 181);
-            this.cbxIgnorarSeJaExistir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbxIgnorarSeJaExistir.Location = new System.Drawing.Point(124, 136);
             this.cbxIgnorarSeJaExistir.Name = "cbxIgnorarSeJaExistir";
-            this.cbxIgnorarSeJaExistir.Size = new System.Drawing.Size(230, 24);
+            this.cbxIgnorarSeJaExistir.Size = new System.Drawing.Size(183, 19);
             this.cbxIgnorarSeJaExistir.TabIndex = 13;
             this.cbxIgnorarSeJaExistir.Text = "Ignorar se já existir no destino";
             this.cbxIgnorarSeJaExistir.UseVisualStyleBackColor = true;
@@ -110,20 +104,18 @@ namespace MediaProcessor.UI
             // cbxLimparDestino
             // 
             this.cbxLimparDestino.AutoSize = true;
-            this.cbxLimparDestino.Location = new System.Drawing.Point(15, 181);
-            this.cbxLimparDestino.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbxLimparDestino.Location = new System.Drawing.Point(13, 136);
             this.cbxLimparDestino.Name = "cbxLimparDestino";
-            this.cbxLimparDestino.Size = new System.Drawing.Size(130, 24);
+            this.cbxLimparDestino.Size = new System.Drawing.Size(105, 19);
             this.cbxLimparDestino.TabIndex = 12;
             this.cbxLimparDestino.Text = "Limpar destino";
             this.cbxLimparDestino.UseVisualStyleBackColor = true;
             // 
             // btnPesquisarCaminhoDestino
             // 
-            this.btnPesquisarCaminhoDestino.Location = new System.Drawing.Point(635, 139);
-            this.btnPesquisarCaminhoDestino.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPesquisarCaminhoDestino.Location = new System.Drawing.Point(556, 104);
             this.btnPesquisarCaminhoDestino.Name = "btnPesquisarCaminhoDestino";
-            this.btnPesquisarCaminhoDestino.Size = new System.Drawing.Size(86, 31);
+            this.btnPesquisarCaminhoDestino.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisarCaminhoDestino.TabIndex = 11;
             this.btnPesquisarCaminhoDestino.Text = "Pesquisar";
             this.btnPesquisarCaminhoDestino.UseVisualStyleBackColor = true;
@@ -131,10 +123,9 @@ namespace MediaProcessor.UI
             // 
             // btnPesquisarCaminhoOrigem
             // 
-            this.btnPesquisarCaminhoOrigem.Location = new System.Drawing.Point(635, 73);
-            this.btnPesquisarCaminhoOrigem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPesquisarCaminhoOrigem.Location = new System.Drawing.Point(556, 55);
             this.btnPesquisarCaminhoOrigem.Name = "btnPesquisarCaminhoOrigem";
-            this.btnPesquisarCaminhoOrigem.Size = new System.Drawing.Size(86, 31);
+            this.btnPesquisarCaminhoOrigem.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisarCaminhoOrigem.TabIndex = 10;
             this.btnPesquisarCaminhoOrigem.Text = "Pesquisar";
             this.btnPesquisarCaminhoOrigem.UseVisualStyleBackColor = true;
@@ -142,10 +133,9 @@ namespace MediaProcessor.UI
             // 
             // btnProcessar
             // 
-            this.btnProcessar.Location = new System.Drawing.Point(14, 215);
-            this.btnProcessar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProcessar.Location = new System.Drawing.Point(12, 161);
             this.btnProcessar.Name = "btnProcessar";
-            this.btnProcessar.Size = new System.Drawing.Size(86, 31);
+            this.btnProcessar.Size = new System.Drawing.Size(75, 23);
             this.btnProcessar.TabIndex = 9;
             this.btnProcessar.Text = "&Processar";
             this.btnProcessar.UseVisualStyleBackColor = true;
@@ -156,40 +146,27 @@ namespace MediaProcessor.UI
             this.outputWindow.BackColor = System.Drawing.SystemColors.Desktop;
             this.outputWindow.ForeColor = System.Drawing.Color.Yellow;
             this.outputWindow.HideSelection = false;
-            this.outputWindow.Location = new System.Drawing.Point(14, 267);
-            this.outputWindow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.outputWindow.Location = new System.Drawing.Point(12, 200);
             this.outputWindow.Name = "outputWindow";
             this.outputWindow.ReadOnly = true;
-            this.outputWindow.Size = new System.Drawing.Size(803, 664);
+            this.outputWindow.Size = new System.Drawing.Size(703, 499);
             this.outputWindow.TabIndex = 8;
             this.outputWindow.Text = "";
             // 
             // txtOrigem
             // 
-            this.txtOrigem.Location = new System.Drawing.Point(14, 73);
-            this.txtOrigem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOrigem.Location = new System.Drawing.Point(12, 55);
             this.txtOrigem.Name = "txtOrigem";
             this.txtOrigem.PlaceholderText = "Caminho de origem";
-            this.txtOrigem.Size = new System.Drawing.Size(613, 27);
+            this.txtOrigem.Size = new System.Drawing.Size(537, 23);
             this.txtOrigem.TabIndex = 5;
-            // 
-            // btnArquivo
-            // 
-            this.btnArquivo.Location = new System.Drawing.Point(107, 215);
-            this.btnArquivo.Name = "btnArquivo";
-            this.btnArquivo.Size = new System.Drawing.Size(94, 29);
-            this.btnArquivo.TabIndex = 14;
-            this.btnArquivo.Text = "&Arquivo";
-            this.btnArquivo.UseVisualStyleBackColor = true;
-            this.btnArquivo.Click += new System.EventHandler(this.btnArquivo_Click);
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 948);
+            this.ClientSize = new System.Drawing.Size(724, 711);
             this.Controls.Add(this.groupBox2);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Processador de Imagens";
@@ -212,7 +189,6 @@ namespace MediaProcessor.UI
         private System.Windows.Forms.TextBox txtOrigem;
         private System.Windows.Forms.CheckBox cbxLimparDestino;
         private System.Windows.Forms.CheckBox cbxIgnorarSeJaExistir;
-        private System.Windows.Forms.Button btnArquivo;
     }
 }
 

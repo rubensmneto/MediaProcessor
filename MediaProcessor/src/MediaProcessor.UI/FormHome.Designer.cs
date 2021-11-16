@@ -70,6 +70,7 @@ namespace MediaProcessor.UI
             this.btnProcessamentoUnico.Location = new System.Drawing.Point(3, 4);
             this.btnProcessamentoUnico.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnProcessamentoUnico.Name = "btnProcessamentoUnico";
+            this.btnProcessamentoUnico.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.btnProcessamentoUnico.Size = new System.Drawing.Size(362, 56);
             this.btnProcessamentoUnico.TabIndex = 2;
             this.btnProcessamentoUnico.Text = "Processamento Ú&nico";
@@ -85,7 +86,7 @@ namespace MediaProcessor.UI
             this.flowLayoutPanel1.Location = new System.Drawing.Point(53, 312);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(366, 133);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(366, 131);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // btnProcessamentoMultiplo
@@ -95,6 +96,7 @@ namespace MediaProcessor.UI
             this.btnProcessamentoMultiplo.Location = new System.Drawing.Point(3, 68);
             this.btnProcessamentoMultiplo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnProcessamentoMultiplo.Name = "btnProcessamentoMultiplo";
+            this.btnProcessamentoMultiplo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProcessamentoMultiplo.Size = new System.Drawing.Size(362, 56);
             this.btnProcessamentoMultiplo.TabIndex = 3;
             this.btnProcessamentoMultiplo.Text = "Processamento &Multiplo";
@@ -106,7 +108,7 @@ namespace MediaProcessor.UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(411, 564);
+            this.label2.Location = new System.Drawing.Point(365, 447);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 4;
@@ -117,7 +119,7 @@ namespace MediaProcessor.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 600);
+            this.ClientSize = new System.Drawing.Size(469, 496);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);

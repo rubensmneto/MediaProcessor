@@ -131,25 +131,20 @@ namespace MediaProcessor.UI.Services
         public override void SetOriginalDate(string caminho, DateTime data)
         {
 
-
             var arquivo = ShellFile.FromFilePath(caminho);
 
             using var pw = arquivo.Properties.GetPropertyWriter();
 
             var property = arquivo.Properties.System.ItemDate;
 
-            if (property != null && property.Value != null) // se o valor for nulo, não é possível setar a propriedade :(
+            if (property.ValueAsObject == null ||
+                Convert.ToDateTime(property.ValueAsObject).Subtract(data).TotalSeconds != 0)
             {
-                if (!property.Value.HasValue && property.Value.Value != data)
-                {
-                    property.Value = data;
-                    pw.WriteProperty(property, data);
-                    pw.WriteProperty(arquivo.Properties.System.ItemDate, data);
-                }
+                pw.WriteProperty(property, data);
             }
             else
             {
-               
+                Console.Write("Já está com a data correta");
             }
 
             pw.Close();

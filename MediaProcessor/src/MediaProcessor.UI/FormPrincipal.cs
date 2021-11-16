@@ -36,7 +36,7 @@ namespace MediaProcessor.UI
 
             ActiveControl = btnProcessar;
 
-            txtOrigem.Text = "D:\\Users\\ruben\\OneDrive\\Imagens\\Galeria Samsung\\DCIM\\Camera";
+            txtOrigem.Text = "D:\\Originais";
 
             txtDestino.Text = "D:\\Processadas";
 
@@ -137,7 +137,8 @@ namespace MediaProcessor.UI
 
                     var task = Task.Factory.StartNew(() =>
                     {
-                        processingResponse = _processadores.First(p => p.ServiceLocation(arquivo.Extension)).Processar(arquivo, destino, cbxIgnorarSeJaExistir.Checked);
+                        var processador = _processadores.First(p => p.ServiceLocation(arquivo.Extension));
+                        processingResponse = processador.Processar(arquivo, destino, cbxIgnorarSeJaExistir.Checked);
                     });
 
                     Task.WaitAll(task);

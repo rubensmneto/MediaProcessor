@@ -40,5 +40,6 @@ namespace MediaProcessor.UI
             Show();
 
         }
+
     }
 }

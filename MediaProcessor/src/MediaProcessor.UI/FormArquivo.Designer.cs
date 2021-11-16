@@ -29,6 +29,7 @@ namespace MediaProcessor.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormArquivo));
             this.label1 = new System.Windows.Forms.Label();
             this.lblNomeArquivo = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -78,6 +79,7 @@ namespace MediaProcessor.UI
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -87,7 +89,7 @@ namespace MediaProcessor.UI
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(992, 254);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(669, 254);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
             // tableLayoutPanel2
@@ -98,11 +100,11 @@ namespace MediaProcessor.UI
             this.tableLayoutPanel2.Controls.Add(this.txtNomeArquivo, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnSelecionarArquivo, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 23);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(13, 33);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(986, 38);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(643, 38);
             this.tableLayoutPanel2.TabIndex = 15;
             // 
             // txtNomeArquivo
@@ -113,7 +115,7 @@ namespace MediaProcessor.UI
             this.txtNomeArquivo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNomeArquivo.Name = "txtNomeArquivo";
             this.txtNomeArquivo.PlaceholderText = "Selecione o arquivo";
-            this.txtNomeArquivo.Size = new System.Drawing.Size(876, 27);
+            this.txtNomeArquivo.Size = new System.Drawing.Size(533, 27);
             this.txtNomeArquivo.TabIndex = 10;
             // 
             // btnSelecionarArquivo
@@ -122,7 +124,7 @@ namespace MediaProcessor.UI
             this.btnSelecionarArquivo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSelecionarArquivo.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSelecionarArquivo.Image = global::MediaProcessor.UI.Properties.Resources.searching;
-            this.btnSelecionarArquivo.Location = new System.Drawing.Point(885, 4);
+            this.btnSelecionarArquivo.Location = new System.Drawing.Point(542, 4);
             this.btnSelecionarArquivo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSelecionarArquivo.Name = "btnSelecionarArquivo";
             this.btnSelecionarArquivo.Size = new System.Drawing.Size(98, 30);
@@ -138,9 +140,9 @@ namespace MediaProcessor.UI
             this.btnCorrigir.Enabled = false;
             this.btnCorrigir.Image = global::MediaProcessor.UI.Properties.Resources.diskette;
             this.btnCorrigir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCorrigir.Location = new System.Drawing.Point(3, 168);
+            this.btnCorrigir.Location = new System.Drawing.Point(13, 178);
             this.btnCorrigir.Name = "btnCorrigir";
-            this.btnCorrigir.Size = new System.Drawing.Size(986, 59);
+            this.btnCorrigir.Size = new System.Drawing.Size(643, 59);
             this.btnCorrigir.TabIndex = 4;
             this.btnCorrigir.Text = "&Alterar";
             this.btnCorrigir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -151,7 +153,7 @@ namespace MediaProcessor.UI
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Location = new System.Drawing.Point(13, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(294, 20);
             this.label3.TabIndex = 13;
@@ -161,7 +163,7 @@ namespace MediaProcessor.UI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 84);
+            this.label2.Location = new System.Drawing.Point(13, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 20);
             this.label2.TabIndex = 2;
@@ -175,7 +177,7 @@ namespace MediaProcessor.UI
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.Controls.Add(this.dtpDataArquivo, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.dtpHoraArquivo, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 107);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(13, 117);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -206,13 +208,14 @@ namespace MediaProcessor.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 254);
+            this.ClientSize = new System.Drawing.Size(669, 254);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblNomeArquivo);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormArquivo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormArquivo";
+            this.Text = "Processamento Unitário - MediaProcessor";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

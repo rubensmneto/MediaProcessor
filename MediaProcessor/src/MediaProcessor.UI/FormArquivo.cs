@@ -62,6 +62,18 @@ namespace MediaProcessor.UI
 
         }
 
+        private void BloquearBotoes()
+        {
+            btnSelecionarArquivo.Enabled = false;
+            btnCorrigir.Enabled = false;
+        }
+
+        private void LiberarBotoes()
+        {
+            btnSelecionarArquivo.Enabled = true;
+            btnCorrigir.Enabled = true;
+        }
+
         private void btnCorrigir_Click(object sender, EventArgs e)
         {
 
@@ -75,6 +87,8 @@ namespace MediaProcessor.UI
             }
 
             Cursor = Cursors.WaitCursor;
+
+            BloquearBotoes();
 
             // Criar nome do arquivo de backup
             var backupFileName = $"{_fileInfo.FullName}.bkp";
@@ -94,6 +108,7 @@ namespace MediaProcessor.UI
                 if (retorno != DialogResult.Yes)
                 {
                     Cursor = Cursors.Default;
+                    LiberarBotoes();
                     return;
                 }
 
@@ -102,20 +117,24 @@ namespace MediaProcessor.UI
             // definir nome do arquivo de destino
             var target = $"{_fileInfo.Directory}\\{dtpDataArquivo.Value:yyyyMMdd_HHmmss}{_fileInfo.Extension}";
 
-            try
+            if (!_fileInfo.FullName.Equals(target, StringComparison.InvariantCultureIgnoreCase))
             {
-                // renomear = move do velho pro novo
-                File.Move(_fileInfo.FullName, target);
-            }
-            catch (Exception ex)
-            {
-                File.Delete(backupFileName);
-                MessageBox.Show($"Erro ao ajustar o nome do arquivo: {ex.Message}",
-                                "Ops!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                Cursor = Cursors.Default;
-                return;
+                try
+                {
+                    // renomear = move do velho pro novo
+                    File.Move(_fileInfo.FullName, target);
+                }
+                catch (Exception ex)
+                {
+                    File.Delete(backupFileName);
+                    MessageBox.Show($"Erro ao ajustar o nome do arquivo: {ex.Message}",
+                                    "Ops!",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                    Cursor = Cursors.Default;
+                    LiberarBotoes();
+                    return;
+                }
             }
 
             try
@@ -132,6 +151,7 @@ namespace MediaProcessor.UI
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 Cursor = Cursors.Default;
+                LiberarBotoes();
                 return;
             }
 
@@ -150,10 +170,19 @@ namespace MediaProcessor.UI
             }
 
             // notificação
-            MessageBox.Show("Processado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var response = MessageBox.Show("Processado com sucesso!\n\rDeseja processar outro arquivo?", "Sucesso", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             // finalizando
-            Close();
+            if (response != DialogResult.Yes)
+            {
+                Close();
+            }
+
+            Cursor = Cursors.Default;
+            txtNomeArquivo.Text = string.Empty;
+            dtpDataArquivo.Value = dtpHoraArquivo.Value = DateTime.Now;
+            LiberarBotoes();
+            btnSelecionarArquivo_Click(this, e);
 
         }
 
@@ -171,10 +200,11 @@ namespace MediaProcessor.UI
         private void btnSelecionarArquivo_Click(object sender, EventArgs e)
         {
 
-            if (!SelecionarArquivo() || 
+            if (!SelecionarArquivo() ||
                 !SelecionarProcessador())
             {
                 btnCorrigir.Enabled = false;
+                return;
             }
 
             txtNomeArquivo.Text = _fileInfo.FullName;
